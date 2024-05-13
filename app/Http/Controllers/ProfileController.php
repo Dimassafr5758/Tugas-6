@@ -8,10 +8,14 @@ class ProfileController extends Controller
 {
     /**
      * Handle the incoming request.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
      */
     public function __invoke(Request $request)
     {
         $pageTitle = 'Profile';
-        return view('profile', ['pageTitle' => $pageTitle]);
+        $icon = 'bi bi-person-circle';
+        return view('profile', ['pageTitle' => $pageTitle, 'icon' => $icon]);
     }
 }

@@ -1,13 +1,30 @@
 <?php
 
-namespace App\Http\Controllers;use
+namespace App\Http\Controllers;
 
-Illuminate\Http\Request;
+use Illuminate\Http\Request;
 
 class HomeController extends Controller
-{function index()
+{
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function index()
     {
         $pageTitle = 'Home';
-        return view('home', ['pageTitle' => $pageTitle]);
+        $icon = 'bi bi-person-circle';
+        return view('home', ['pageTitle' => $pageTitle, 'icon' => $icon]);
     }
 }
